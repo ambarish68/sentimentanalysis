@@ -50,12 +50,10 @@ if __name__ == '__main__':
             print valerr +" i= " + i
 
     predicted = classifier.predict(np.asarray(testPhrases))
-    for i in range(len(predicted)):
-        sentiment_label = predicted[i]
-        phraseid = testPhraseIds[i]
 
 
-    output = pd.DataFrame(data={"id": test["PhraseId"], "sentiment": predicted})
+
+    output = pd.DataFrame(data={"PhraseId": test["PhraseId"], "Sentiment": predicted})
 
     # Use pandas to write the comma-separated output file
     output.to_csv(os.path.join(os.path.dirname(__file__), 'data', 'trial_one.csv'), index=False, quoting=3)
